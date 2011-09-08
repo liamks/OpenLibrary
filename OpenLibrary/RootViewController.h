@@ -10,7 +10,10 @@
 
 @class DetailViewController;
 
-@interface RootViewController : UITableViewController
+@interface RootViewController : UITableViewController{
+    NSDictionary *subjects;
+    DetailViewController *detailViewController;
+}
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 

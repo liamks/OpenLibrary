@@ -10,15 +10,41 @@
 
 #import "DetailViewController.h"
 
+
+@interface RootViewController()
+@property (nonatomic, retain) NSDictionary *subjects;
+@end
+
+
 @implementation RootViewController
 		
 @synthesize detailViewController;
+@synthesize subjects;
+
+-(NSDictionary *)subjects{
+    if(!subjects){
+        NSArray *values = [[NSArray alloc] initWithObjects: @"Mystery",@"Action",@"Romance",@"Science Fiction", nil];
+        NSArray *keys = [[NSArray alloc] initWithObjects:@"mystery", @"action", @"romance", @"scence_fiction",nil];
+        subjects = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
+        [keys release];
+        [values release];
+    }
+                    
+    return subjects;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Subjects";
     self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+    //subjects = [[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ListOfBookSubjects" ofType:@"plist"]] retain];
+    //[self.subjects retain];
+    //self.subjects = [[NSArray alloc] initWithObjects:@"First", @"Second", "@Third", nil];
+    //self.subjects = [NSArray arrayWithObjects:@"First", @"Second", "@Third", nil];
+    //NSString *firstItem = [self.subjects objectAtIndex:0];
+    //NSLog(@"HERE %@",firstItem);
 }
 
 		
@@ -55,23 +81,26 @@
 		
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
-    		
+    NSLog(@"Number of rows: %d", [self.subjects count]);
+    return [self.subjects count];
 }
 
 		
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BookSubjects";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    
 
-    // Configure the cell.
+    cell.textLabel.text = [[subjects allValues] objectAtIndex:indexPath.row];
+    NSLog(@"CELL: %@",cell.textLabel.text);
     		
     return cell;
+    
 }
 
 /*
@@ -116,6 +145,8 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    detailViewController.detailItem =  [[subjects allKeys] objectAtIndex:indexPath.row];
+    detailViewController.detailDescriptionLabel.text = [[subjects allValues] objectAtIndex:indexPath.row];
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,6 +166,7 @@
 - (void)dealloc
 {
     [detailViewController release];
+    [subjects release];
     [super dealloc];
 }
 
