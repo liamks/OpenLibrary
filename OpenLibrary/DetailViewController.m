@@ -45,8 +45,9 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+    //self.toolbar.
 
-    self.detailDescriptionLabel.text = [self.detailItem description];
+    //self.detailDescriptionLabel.text = [self.detailItem description];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,7 +78,7 @@
 
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController: (UIPopoverController *)pc
 {
-    barButtonItem.title = @"Events";
+    barButtonItem.title = @"Subjects";
     NSMutableArray *items = [[self.toolbar items] mutableCopy];
     [items insertObject:barButtonItem atIndex:0];
     [self.toolbar setItems:items animated:YES];
