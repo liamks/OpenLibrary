@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881936F714180689006C00DB /* Test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 881936F614180689006C00DB /* Test.plist */; };
 		88FEA6FA1417E5880096769D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FEA6F91417E5880096769D /* UIKit.framework */; };
 		88FEA6FC1417E5880096769D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FEA6FB1417E5880096769D /* Foundation.framework */; };
 		88FEA6FE1417E5880096769D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FEA6FD1417E5880096769D /* CoreGraphics.framework */; };
@@ -20,21 +21,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		881936F614180689006C00DB /* Test.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Test.plist; sourceTree = "<group>"; };
 		88FEA6F51417E5880096769D /* OpenLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FEA6F91417E5880096769D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88FEA6FB1417E5880096769D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88FEA6FD1417E5880096769D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		88FEA7011417E5880096769D /* OpenLibrary-Info.plist */ = {isa = PBXFileReference; path = "OpenLibrary-Info.plist"; sourceTree = "<group>"; };
+		88FEA7011417E5880096769D /* OpenLibrary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenLibrary-Info.plist"; sourceTree = "<group>"; };
 		88FEA7031417E5880096769D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88FEA7051417E5880096769D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		88FEA7071417E5880096769D /* OpenLibrary-Prefix.pch */ = {isa = PBXFileReference; path = "OpenLibrary-Prefix.pch"; sourceTree = "<group>"; };
-		88FEA7081417E5880096769D /* OpenLibraryAppDelegate.h */ = {isa = PBXFileReference; path = OpenLibraryAppDelegate.h; sourceTree = "<group>"; };
+		88FEA7071417E5880096769D /* OpenLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		88FEA7081417E5880096769D /* OpenLibraryAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenLibraryAppDelegate.h; sourceTree = "<group>"; };
 		88FEA7091417E5880096769D /* OpenLibraryAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenLibraryAppDelegate.m; sourceTree = "<group>"; };
 		88FEA70C1417E5880096769D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		88FEA70E1417E5880096769D /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		88FEA70E1417E5880096769D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		88FEA70F1417E5880096769D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		88FEA7121417E5880096769D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailView.xib; sourceTree = "<group>"; };
-		88FEA7141417E5880096769D /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		88FEA7141417E5880096769D /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		88FEA7151417E5880096769D /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				88FEA7111417E5880096769D /* DetailView.xib */,
 				88FEA7141417E5880096769D /* RootViewController.h */,
 				88FEA7151417E5880096769D /* RootViewController.m */,
+				881936F614180689006C00DB /* Test.plist */,
 				88FEA7001417E5880096769D /* Supporting Files */,
 			);
 			path = OpenLibrary;
@@ -156,6 +159,7 @@
 				88FEA7041417E5880096769D /* InfoPlist.strings in Resources */,
 				88FEA70D1417E5880096769D /* MainWindow.xib in Resources */,
 				88FEA7131417E5880096769D /* DetailView.xib in Resources */,
+				881936F714180689006C00DB /* Test.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,7 @@
 				88FEA71B1417E5880096769D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
