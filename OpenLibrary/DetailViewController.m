@@ -7,8 +7,8 @@
 //
 
 #import "DetailViewController.h"
-
 #import "RootViewController.h"
+
 
 @interface DetailViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
@@ -21,6 +21,17 @@
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize popoverController = _myPopoverController;
+
+@synthesize bookKey;
+@synthesize barButtonItemDownload;
+@synthesize spinner;
+
+-(void)bookSelected:(BooksFromOpenLibraryController *) requestor withBookKey:(NSString *) newBookKey{
+    if(requestor == booksFromOpenLibraryController){
+        self.bookKey = newBookKey;
+        self.barButtonItemDownload.enabled = YES;
+    }
+}
 
 #pragma mark - Managing the detail item
 
@@ -42,12 +53,33 @@
     }        
 }
 
+-(void)viewDidLoad{
+    booksFromOpenLibraryController = [[BooksFromOpenLibraryController alloc] initWithSubject:self.detailItem
+                                                                                       style:UITableViewStylePlain];
+    booksFromOpenLibraryController.delegate = self;
+
+    booksFromOpenLibraryController.tableView.frame = CGRectMake(0, 44,
+                                                                 self.view.frame.size.width, 
+                                                                 self.view.frame.size.height);
+    
+    [self.view addSubview:booksFromOpenLibraryController.view];
+}
+
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-    //self.toolbar.
 
-    //self.detailDescriptionLabel.text = [self.detailItem description];
+    self.spinner.hidden = NO;
+    
+    [booksFromOpenLibraryController setSubject:self.detailItem];
+    [booksFromOpenLibraryController getBooksFromOpenLibraryFirstTime];
+
+    self.spinner.hidden = YES;
+
+}
+
+-(IBAction)downloadMore:(UIBarButtonItem *)sender{
+    [booksFromOpenLibraryController getBooksFromOpenLibrary];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

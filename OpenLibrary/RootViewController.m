@@ -23,8 +23,8 @@
 
 -(NSDictionary *)subjects{
     if(!subjects){
-        NSArray *values = [[NSArray alloc] initWithObjects: @"Mystery",@"Action",@"Romance",@"Science Fiction", nil];
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"mystery", @"action", @"romance", @"scence_fiction",nil];
+        NSArray *values = [[NSArray alloc] initWithObjects: @"Mystery",@"Action",@"Romance",@"History", @"Biography",@"Juvenile fiction", nil];
+        NSArray *keys = [[NSArray alloc] initWithObjects:@"mystery", @"action", @"romance", @"history",@"biography",@"juvenile_fiction",nil];
         subjects = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
         [keys release];
         [values release];
@@ -40,11 +40,7 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     //subjects = [[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ListOfBookSubjects" ofType:@"plist"]] retain];
-    //[self.subjects retain];
-    //self.subjects = [[NSArray alloc] initWithObjects:@"First", @"Second", "@Third", nil];
-    //self.subjects = [NSArray arrayWithObjects:@"First", @"Second", "@Third", nil];
-    //NSString *firstItem = [self.subjects objectAtIndex:0];
-    //NSLog(@"HERE %@",firstItem);
+
 }
 
 		
@@ -75,13 +71,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    		
 }
 
 		
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Number of rows: %d", [self.subjects count]);
     return [self.subjects count];
 }
 
@@ -95,10 +89,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-
     cell.textLabel.text = [[subjects allValues] objectAtIndex:indexPath.row];
-    NSLog(@"CELL: %@",cell.textLabel.text);
-    		
     return cell;
     
 }
@@ -147,6 +138,7 @@
      */
     detailViewController.detailItem =  [[subjects allKeys] objectAtIndex:indexPath.row];
     detailViewController.detailDescriptionLabel.text = [[subjects allValues] objectAtIndex:indexPath.row];
+    
 }
 
 - (void)didReceiveMemoryWarning
